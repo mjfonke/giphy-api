@@ -1,5 +1,5 @@
 
-var emotionArr = ["happy", "bored", "sad", "stressed", "confident", "love", "excited", "awkward"];
+var emotionArr = ["happy", "bored", "sad", "stressed", "confident", "love", "excited", "awkward", "lol"];
 
 function displayImg() {
 
@@ -11,8 +11,6 @@ function displayImg() {
         method: "GET"
     }).then(function(response) {
 
-        
-
         $("#image-view").empty();
 
         var results = response.data;
@@ -22,10 +20,12 @@ function displayImg() {
             if (results[i].rating !== "r" && results[i].rating !== "pg-13") {
                 
             var gifDiv = $("<div>");
+            gifDiv.addClass("wrapper");
             var rating = results[i].rating;
             var p = $("<p>").text("Rating: " + rating);
+            p.addClass("rating-text");
             var img = $("<img>");
-            img.addClass("gif")
+            img.addClass("gif");
             img.attr("src", results[i].images.fixed_height.url);
             img.attr("data-still", results[i].images.fixed_height_still.url);
             img.attr("data-animate", results[i].images.fixed_height.url);
