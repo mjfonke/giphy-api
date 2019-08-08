@@ -1,0 +1,12 @@
+.emo-btn {
+    background: #ffffff;
+    margin: 10px;
+    padding: 5px 10px 5px 10px;
+    border: 2px solid #abb2b8;
+    border-radius: 5px;
+}
+
+.gif {
+    width: 250px;
+    height: 250px;
+}
