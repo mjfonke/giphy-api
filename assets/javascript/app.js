@@ -26,10 +26,10 @@ function displayImg() {
             p.addClass("rating-text");
             var img = $("<img>");
             img.addClass("gif");
-            img.attr("src", results[i].images.fixed_height.url);
-            img.attr("data-still", results[i].images.fixed_height_still.url);
+            img.attr("src", results[i].images.fixed_height_still.url);
             img.attr("data-animate", results[i].images.fixed_height.url);
-            img.attr("data-state", "still");
+            img.attr("data-still", results[i].images.fixed_height_still.url);
+            img.attr("data-state", "animate");
             gifDiv.append(p);
             gifDiv.append(img);
             $("#image-view").prepend(gifDiv);
@@ -68,24 +68,26 @@ function displayImg() {
 
     buttons();
 
-    $(document).on("click", ".emo-btn", displayImg);
-
     $(document).on("click", ".gif", function() {
         
         
         var state = $(this).attr("data-state");
         
 
-        if (state === "still") {
-            $(this).attr("src", $(this).attr("data-animate"));
-            $(this).attr("data-state", "animate");
-        } else {
+        if (state === "animate") {
             $(this).attr("src", $(this).attr("data-still"));
             $(this).attr("data-state", "still");
+        } else {
+            $(this).attr("src", $(this).attr("data-animate"));
+            $(this).attr("data-state", "animate");
         }
 
         
     });
+
+    $(document).on("click", ".emo-btn", displayImg);
+
+    
    
 
     
